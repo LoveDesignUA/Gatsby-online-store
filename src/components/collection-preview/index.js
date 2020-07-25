@@ -35,11 +35,6 @@ const CollectionPreview = ({ products, path }) => {
       </motion.div>
       <div className={cs.showMore}>
         <div>
-          {/* <motion.div
-          initial={{ borderColor: "#f1f1f1" }}
-          animate={{ borderColor: "#121212" }}
-          transition={{ yoyo: Infinity, duration: 1 }}
-        > */}
           <svg
             width="200px"
             height="48px"
@@ -61,7 +56,6 @@ const CollectionPreview = ({ products, path }) => {
             <span>Показать все</span>
           </Link>
         </div>
-        {/* </motion.div> */}
       </div>
     </div>
   )

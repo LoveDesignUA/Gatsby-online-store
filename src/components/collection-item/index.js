@@ -49,10 +49,6 @@ const CollectionItem = product => {
     setCurrentImage(prevState => (prevState === 0 ? 1 : 0))
   }
 
-  // const addToCartHandler = () => {
-  //   dispatch(addItemToCart(product))
-  // }
-
   return (
     <motion.div variants={itemVariants} className={cs.collectionItem}>
       <div

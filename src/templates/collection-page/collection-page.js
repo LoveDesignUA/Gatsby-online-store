@@ -79,8 +79,6 @@ const CollectionPage = ({ data, location }) => {
 
   const productsBrands = useMemo(() => getAllProductBrands(product), [product])
 
-  // console.log(filterOptions)
-
   const renderFilteredProducts = products => {
     return products.map(product => {
       return (

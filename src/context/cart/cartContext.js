@@ -15,7 +15,8 @@ const initialState = {
 }
 
 const init = () => {
-  const localCartItems = localStorage.getItem("cart items")
+  const localCartItems =
+    typeof window !== "undefined" && window.localStorage.getItem("cart items")
 
   return localCartItems
     ? { ...initialState, cartItems: JSON.parse(localCartItems) }

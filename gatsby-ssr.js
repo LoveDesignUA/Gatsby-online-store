@@ -1,6 +1,6 @@
-// const React = require("react")
-// const CartProvider = require("./src/context/cart/cartContext").default
+const React = require("react")
+const CartProvider = require("./src/context/cart/cartContext").default
 
-// exports.wrapRootElement = ({ element }) => {
-//   return <CartProvider>{element}</CartProvider>
-// }
+exports.wrapRootElement = ({ element }) => {
+  return <CartProvider>{element}</CartProvider>
+}

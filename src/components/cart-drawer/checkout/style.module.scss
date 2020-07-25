@@ -1,0 +1,31 @@
+@import "../../../design-system/mixins.scss";
+
+.checkOut {
+  padding: 2em;
+
+  p {
+    font-weight: bold;
+  }
+
+  form {
+    margin-top: 2em;
+
+    fieldset {
+      border: none;
+      margin: 0;
+      margin-bottom: 1.5em;
+      padding: 0;
+    }
+
+    p {
+      display: block;
+      // font-weight: bold;
+      font-weight: 700;
+      margin-top: -1em;
+    }
+
+    button {
+      margin-top: 3em
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import "../../design-system/vars.scss";
+
+.customCheckbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+
+  &:not(:last-child) {
+    margin-right: 3em;
+  }
+
+  button {
+    line-height: 0;
+    height: auto;
+    display: inline-block;
+    border: 2px solid $color-primary;
+    margin-right: 0.5em;
+
+    svg {
+      opacity: 0;
+    }
+  }
+
+
+  &.active {
+    button {
+      background-color: $color-primary;
+
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+}

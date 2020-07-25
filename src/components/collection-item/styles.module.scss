@@ -1,0 +1,41 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.collectionItem {
+
+  a.productLink {
+    display: block;
+    // font-family: 'PT Sans Caption';
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1rem;
+    color: $color-primary;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    // margin-right: 0.5em;
+  }
+
+  .productInfo {
+    padding-left: 1em;
+    padding-right: 1em;
+
+    @include for-tablet-portrait-up {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    // padding: 1em;
+    // border: 2px solid #f1f1f1;
+
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: start;
+  }
+
+}
+
+.imageWrapper {
+  background-color: #eee;
+  // padding: 24px;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,69 @@
+@import "../../design-system/normalize.scss";
+@import "../../design-system/vars.scss";
+@import "../../design-system/typography.scss";
+@import "../../design-system/mixins.scss";
+
+:root {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.overlayLayout {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+main {
+  padding: 1em;
+
+  @include for-tablet-portrait-up {
+    padding: 2em;
+  }
+
+  @include for-desktop-up {
+    padding: 3em;
+  }
+
+  &.noPadding {
+    padding: 0;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $color-primary;
+}
+
+button,
+button:focus {
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.breadcrumbs {
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  @include for-tablet-portrait-up {
+    // margin: 0;
+    margin-bottom: 1em;
+  }
+
+  &>* {
+    display: inline-block;
+  }
+
+  &>a {
+    text-decoration: underline;
+  }
+
+  &>*+* {
+    &::before {
+      content: "\25B8";
+      text-decoration: none !important;
+      display: inline-block;
+      margin: 0 0.5em;
+    }
+  }
+}

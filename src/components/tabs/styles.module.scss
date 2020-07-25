@@ -1,0 +1,48 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.tabContainer {
+  margin-bottom: 2em;
+}
+
+.tabList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include for-tablet-portrait-up {
+    grid-template-columns: repeat(2, 10em);
+  }
+}
+
+.tabListItem {
+  padding: 0.9em;
+  border-bottom: 2px solid $color-primary;
+  background-color: #F5F5F5;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  font-weight: 700;
+
+  @include for-tablet-portrait-up {
+    font-size: 0.9rem;
+    background-color: #F5F5F5;
+    padding: 0.9em 2em;
+  }
+}
+
+.tabListActive {
+  border: 2px solid $color-primary;
+  background-color: $color-primary;
+  color: white;
+}
+
+.tabContent {
+  background-color: #F5F5F5;
+
+  padding: 2em;
+  padding-bottom: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+
+}

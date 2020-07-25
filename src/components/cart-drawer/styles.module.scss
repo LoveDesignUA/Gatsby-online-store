@@ -1,0 +1,97 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.cartDrawer {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  // @include interpolate(width, $breakpoint-min, 599px, 240px, 400px);
+  width: 320px;
+  background: #fff;
+  z-index: 99;
+
+  @include for-tablet-portrait-up {
+    width: 400px;
+  }
+
+  @include for-phone-landscape-only {
+    width: 100vw;
+  }
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 98;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.cartHeader {
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  background-color: $color-primary;
+  padding: 0 1em;
+
+  button {
+    display: flex;
+    align-items: center;
+
+    &>span {
+      margin-left: 0.25em;
+    }
+  }
+
+  span {
+    color: white;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  h2 {
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
+
+.cartContent {
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  // padding: 1em;
+  // padding-bottom: 1.5em;
+
+  overflow-x: hidden;
+}
+
+.cartStage {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.cartBottom {
+  border-top: 2px solid $color-primary;
+
+  .totalPrice {
+    font-weight: bold;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}

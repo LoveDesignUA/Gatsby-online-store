@@ -1,0 +1,19 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.categories {
+
+  @include for-tablet-portrait-up {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // grid-column-gap: 16px;
+    grid-column-gap: 1em;
+  }
+
+  &>div {
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}

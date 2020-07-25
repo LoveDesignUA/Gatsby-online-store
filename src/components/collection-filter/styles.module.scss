@@ -1,0 +1,14 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.collectionFilter {
+  overflow: hidden;
+
+  // div {
+  //   margin-bottom: 3em;
+  // }
+}
+
+.tab {
+  display: flex;
+}

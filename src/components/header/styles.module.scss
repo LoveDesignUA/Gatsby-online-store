@@ -1,0 +1,45 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: $color-primary;
+  height: 64px;
+  padding: 0 8px;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include for-tablet-landscape-up {
+    position: static;
+  }
+
+  a {
+    // font-family: 'PT Sans Catption', sans-serif;
+    color: #fff;
+    // text-transform: uppercase;
+    // letter-spacing: 5px;
+  }
+
+  button {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+.headerLinks {
+  display: none;
+
+  @include for-tablet-portrait-up {
+    display: block;
+  }
+
+  &>a+a {
+    margin-left: 3em;
+  }
+}

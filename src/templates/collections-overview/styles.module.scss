@@ -1,0 +1,26 @@
+@import "../../design-system/mixins.scss";
+
+.collectionsOverview {
+  padding-top: 1em;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  // @include for-tablet-portrait-up {
+  //   padding-top: 1;
+  // }
+
+  // @include for-desktop-up {
+  //   padding-top: 0;
+  // }
+
+  &>section {
+    margin-bottom: 2em;
+
+    &:not(:last-child) {
+      padding-bottom: 3em;
+      border-bottom: 1px solid #e3e3e3;
+    }
+  }
+}

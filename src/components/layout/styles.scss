@@ -56,8 +56,8 @@ a {
   color: $color-primary;
 }
 
-button,
-button:focus {
+button {
+  // button:focus {
   padding: 0;
   border: none;
   outline: none;

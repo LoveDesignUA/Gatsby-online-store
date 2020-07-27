@@ -50,6 +50,7 @@ const Checkout = () => {
     // dispatch(setCartStage("complete"))
 
     const form = e.target
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -58,13 +59,13 @@ const Checkout = () => {
         ...formData,
       }),
     })
-      // .then(() => navigate(form.getAttribute("action")))
       .then(() => {
         dispatch(clearCart())
         setFormData(initialFormData)
         dispatch(setCartStage("complete"))
       })
       .catch(error => console.log(error))
+    // .then(() => navigate(form.getAttribute("action")))
   }
 
   const onChangeHandler = ({ target: { name, value } }) => {

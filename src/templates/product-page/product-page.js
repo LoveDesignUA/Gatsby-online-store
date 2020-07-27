@@ -138,7 +138,7 @@ const ProductPage = ({ data }) => {
               animate={{
                 x:
                   choosenProductSize === false
-                    ? [0, -1, 2, -4, -4, 4, -4, 2, -1]
+                    ? [0, -1, 4, -8, -8, 4, -8, 4, -1]
                     : 0,
                 transition: {
                   ease: [0.36, 0.07, 0.19, 0.97],

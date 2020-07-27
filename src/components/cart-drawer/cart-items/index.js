@@ -40,11 +40,15 @@ const itemVariants = {
 }
 
 // Main component
-const CartItems = ({ handleCloseCart, handleCartStage }) => {
+const CartItems = ({ handleCloseCart }) => {
   const {
     cartState: { cartItems, cartItemsCount, cartItemsTotalPrice },
     dispatch,
   } = useContext(CartContext)
+
+  const handleCartStage = () => {
+    dispatch(setCartStage("checkout"))
+  }
 
   const addItemQuantityHandler = (itemId, productSize) => {
     // Этот объект необходим для cartUtils.js при добавлении или обновлении элементов корзины

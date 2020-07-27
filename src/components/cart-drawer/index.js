@@ -13,6 +13,7 @@ import ArrowIcon from "../../images/svg/cart/arrow-back.svg"
 // Components
 import CartItems from "./cart-items"
 import CheckOut from "./checkout"
+import Complete from "./complete"
 
 // Main Component
 const CartDrawer = () => {
@@ -24,10 +25,6 @@ const CartDrawer = () => {
   const handleCloseCart = () => {
     dispatch(toggleCartOpen())
     // dispatch(setCartStage("cart"))
-  }
-
-  const handleCartStage = () => {
-    dispatch(setCartStage("checkout"))
   }
 
   return (
@@ -74,12 +71,10 @@ const CartDrawer = () => {
           <div className={cs.cartContent}>
             <section className={cs.cartStage}>
               {cartStage === "cart" && (
-                <CartItems
-                  handleCloseCart={handleCloseCart}
-                  handleCartStage={handleCartStage}
-                />
+                <CartItems handleCloseCart={handleCloseCart} />
               )}
               {cartStage === "checkout" && <CheckOut />}
+              {cartStage === "complete" && <Complete />}
             </section>
           </div>
         </motion.div>

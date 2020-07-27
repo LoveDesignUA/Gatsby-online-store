@@ -44,8 +44,9 @@ const Checkout = () => {
 
     dispatch(clearCart())
     setFormData(initialFormData)
-    dispatch(toggleCartOpen())
-    dispatch(setCartStage("cart"))
+    // dispatch(toggleCartOpen())
+    // dispatch(setCartStage("cart"))
+    dispatch(setCartStage("complete"))
   }
 
   const onChangeHandler = ({ target: { name, value } }) => {
@@ -64,7 +65,13 @@ const Checkout = () => {
       <p>
         Выбрано {cartItemsCount} товар(а) на сумму {cartItemsTotalPrice} гривен{" "}
       </p>
-      <form onSubmit={onSubmitHandler}>
+      <form
+        name="Checkout form"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={onSubmitHandler}
+      >
         <CustomInput
           type="text"
           minLength="8"
@@ -78,7 +85,7 @@ const Checkout = () => {
           <CustomInput
             type="tel"
             name="phoneNumber"
-            pattern="[0-9]{3}[\s-][0-9]{3}[\s-][0-9]{2}[\s-][0-9]{2}"
+            pattern="[0-9]{3}[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}"
             // pattern="+38(0[1-9]{2})-[0-9]{3}-[0-9]{2}-[0-9]{2})"
             required
             placeholder="Телефон"
@@ -106,9 +113,6 @@ const Checkout = () => {
           value={formData.postOffice}
           onChange={onChangeHandler}
         />
-        {/* <CustomButton type="submit" color="green" fullWidth>
-          Подтвердить заказ
-        </CustomButton> */}
         <RippleButton type="submit" secondary fullWidth>
           Подтвердить заказ
         </RippleButton>

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react"
 import { motion } from "framer-motion"
+import { navigate } from "gatsby"
 
 // Assets
 import cs from "./style.module.scss"
@@ -22,6 +23,12 @@ const initialFormData = {
   phoneNumber: "",
   city: "",
   postOffice: "",
+}
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
 // Main component
@@ -47,6 +54,19 @@ const Checkout = () => {
     // dispatch(toggleCartOpen())
     // dispatch(setCartStage("cart"))
     dispatch(setCartStage("complete"))
+
+    const form = e.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...formData,
+      }),
+    })
+      // .then(() => navigate(form.getAttribute("action")))
+      .then(() => dispatch(setCartStage("complete")))
+      .catch(error => console.log(error))
   }
 
   const onChangeHandler = ({ target: { name, value } }) => {
@@ -66,12 +86,19 @@ const Checkout = () => {
         Выбрано {cartItemsCount} товар(а) на сумму {cartItemsTotalPrice} гривен{" "}
       </p>
       <form
-        name="Checkout form"
+        name="checkout-form"
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}
       >
+        <input type="hidden" name="checkout-form" value="checkout-form" />
+        {/* <p hidden>
+            <label>
+              Don’t fill this out:
+              <input name="bot-field" onChange={onChangeHandler} />
+            </label>
+          </p> */}
         <CustomInput
           type="text"
           minLength="8"

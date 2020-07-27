@@ -6,7 +6,7 @@
   &>input {
     width: 100%;
     border: 0;
-    border-bottom: 1px solid lighten($color-primary, 75) 1px solid transparent;
+    border-bottom: 1px solid lighten($color-primary, 75);
     outline: 0;
     color: $color-primary;
     padding: 1em 0;

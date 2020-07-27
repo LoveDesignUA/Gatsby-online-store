@@ -20,7 +20,7 @@
 }
 
 @mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
+  @media (min-width: 900px) and (orientation: landscape) {
     @content;
   }
 }

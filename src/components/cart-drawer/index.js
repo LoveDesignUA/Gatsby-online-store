@@ -33,6 +33,8 @@ const CartDrawer = () => {
   return (
     <motion.div
       className={cs.cartDrawer}
+      initial={false}
+      animate={false}
       exit={{ display: "none", transition: { delay: 0.5 } }}
       // style={{ display: isCartOpen ? "block" : "none" }}
     >

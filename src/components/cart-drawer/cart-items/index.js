@@ -99,14 +99,16 @@ const CartItems = ({ handleCloseCart, handleCartStage }) => {
                   </div>
 
                   <div className={cs.itemQuantity}>
-                    <button
-                      onClick={() => addItemQuantityHandler(id, productSize)}
-                    >
-                      <PlusIcon />
-                    </button>
-                    <button onClick={() => decreaseItemQuantityHandler(id)}>
-                      <MinusIcon />
-                    </button>
+                    <div>
+                      <button
+                        onClick={() => addItemQuantityHandler(id, productSize)}
+                      >
+                        <PlusIcon />
+                      </button>
+                      <button onClick={() => decreaseItemQuantityHandler(id)}>
+                        <MinusIcon />
+                      </button>
+                    </div>
                     <button onClick={() => removeItemFromCartHandler(id)}>
                       <RemoveIcon />
                     </button>
@@ -119,9 +121,9 @@ const CartItems = ({ handleCloseCart, handleCartStage }) => {
           <p>Ни одного товара не выбрано</p>
         )}
       </motion.section>
-      <section>
+      <section className={cs.bottomPanel}>
         {cartItemsCount ? (
-          <div className={`${cs.cartItemsBottom} ${cs.borderTop}`}>
+          <div className={cs.cartItemsBottom}>
             <div className={cs.totalPrice}>
               Сумма к оплате: {cartItemsTotalPrice} грн
             </div>

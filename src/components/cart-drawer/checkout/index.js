@@ -40,12 +40,6 @@ const Checkout = () => {
 
   const [formData, setFormData] = useState(initialFormData)
 
-  const clearCartHandler = () => {
-    dispatch(toggleCartOpen())
-    dispatch(clearCart())
-    dispatch(setCartStage("cart"))
-  }
-
   const onSubmitHandler = e => {
     e.preventDefault()
 
@@ -92,7 +86,7 @@ const Checkout = () => {
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}
       >
-        <input type="hidden" name="checkout-form" value="checkout-form" />
+        <input type="hidden" name="form-name" value="checkout-form" />
         {/* <p hidden>
             <label>
               Don’t fill this out:

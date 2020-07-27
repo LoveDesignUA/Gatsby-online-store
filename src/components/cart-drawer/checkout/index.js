@@ -43,11 +43,11 @@ const Checkout = () => {
   const onSubmitHandler = e => {
     e.preventDefault()
 
-    dispatch(clearCart())
-    setFormData(initialFormData)
+    // dispatch(clearCart())
+    // setFormData(initialFormData)
     // dispatch(toggleCartOpen())
     // dispatch(setCartStage("cart"))
-    dispatch(setCartStage("complete"))
+    // dispatch(setCartStage("complete"))
 
     const form = e.target
     fetch("/", {
@@ -59,7 +59,11 @@ const Checkout = () => {
       }),
     })
       // .then(() => navigate(form.getAttribute("action")))
-      .then(() => dispatch(setCartStage("complete")))
+      .then(() => {
+        dispatch(clearCart())
+        setFormData(initialFormData)
+        dispatch(setCartStage("complete"))
+      })
       .catch(error => console.log(error))
   }
 

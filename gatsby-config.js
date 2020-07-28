@@ -4,11 +4,13 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://minimal-store.netlify.app`,
     title: `E-commerce store`,
     description: `E-commerce Gatsby store`,
     author: `LoveDesignUA`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {

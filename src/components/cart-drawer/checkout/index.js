@@ -34,36 +34,42 @@ const Checkout = () => {
   } = useContext(CartContext)
 
   const [formData, setFormData] = useState(initialFormData)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  // const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const formRef = useRef(null)
+  // const formRef = useRef(null)
 
-  useEffect(() => {
-    if (!isSubmitting) return
+  // useEffect(() => {
+  //   if (!isSubmitting) return
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": formRef.current.getAttribute("name"),
-        ...formData,
-      }),
-    })
-      .then(() => {
-        dispatch(clearCart())
-        setFormData(initialFormData)
-        dispatch(setCartStage("complete"))
-        setIsSubmitting(false)
-      })
-      .catch(error => {
-        setIsSubmitting(false)
-        console.log("here is " + error)
-      })
-  }, [isSubmitting])
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({
+  //       "form-name": formRef.current.getAttribute("name"),
+  //       ...formData,
+  //     }),
+  //   })
+  //     .then(() => {
+  //       dispatch(clearCart())
+  //       setFormData(initialFormData)
+  //       dispatch(setCartStage("complete"))
+  //       setIsSubmitting(false)
+  //     })
+  //     .catch(error => {
+  //       setIsSubmitting(false)
+  //       console.log("here is " + error)
+  //     })
+  // }, [isSubmitting])
 
   const onSubmitHandler = e => {
     e.preventDefault()
-    setIsSubmitting(true)
+    // setIsSubmitting(true)
+
+    dispatch(clearCart())
+    setFormData(initialFormData)
+    dispatch(setCartStage("complete"))
+    // setIsSubmitting(false)
+
     // const form = e.target
   }
 
@@ -84,16 +90,16 @@ const Checkout = () => {
         Выбрано {cartItemsCount} товар(а) на сумму {cartItemsTotalPrice} гривен
       </p>
       <form
-        ref={formRef}
+        // ref={formRef}
         name="checkout-form"
         method="post"
-        action="/"
+        action="https://formspree.io/mwkradpa"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}
       >
-        <input type="hidden" name="form-name" value="checkout-form" />
-        <input type="hidden" name="bot-field" />
+        {/* <input type="hidden" name="form-name" value="checkout-form" />
+        <input type="hidden" name="bot-field" /> */}
         <CustomInput
           type="text"
           minLength="8"

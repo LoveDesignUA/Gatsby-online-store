@@ -3,38 +3,37 @@
 .customInput {
   margin-bottom: 2em;
 
-  &>input {
-    width: 100%;
-    border: 0;
-    border-bottom: 1px solid lighten($color-primary, 75);
-    outline: 0;
-    color: $color-primary;
-    padding: 1em 0;
-    background: transparent;
-    transition: padding 0.2s;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid lighten($color-primary, 75);
+  outline: 0;
+  color: $color-primary;
+  padding: 1em 0;
+  background: transparent;
+  transition: padding 0.2s;
 
-    &:focus {
-      padding: 1em;
-      background-color: #f3f3f3;
-      border-bottom: 2px solid $color-primary;
+  &:focus {
+    padding: 1em;
+    background-color: #f3f3f3;
+    border-bottom: 2px solid $color-primary;
 
-      &:placeholder-shown,
-      &:invalid {
-        border-bottom: 2px solid $color-primary;
-      }
-    }
-
+    &:placeholder-shown,
     &:invalid {
-      box-shadow: none;
-      border-bottom: 2px solid red;
-    }
-
-    &:valid {
-      border-bottom: 2px solid #27ae60;
-    }
-
-    &:placeholder-shown {
-      border-bottom: 1px solid lighten($color-primary, 50);
+      border-bottom: 2px solid $color-primary;
     }
   }
+
+  &:invalid {
+    box-shadow: none;
+    border-bottom: 2px solid red;
+  }
+
+  &:valid {
+    border-bottom: 2px solid #27ae60;
+  }
+
+  &:placeholder-shown {
+    border-bottom: 1px solid lighten($color-primary, 50);
+  }
+
 }

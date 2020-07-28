@@ -5,11 +5,7 @@ import cs from "./styles.module.scss"
 
 // Main component
 const CustomInput = props => {
-  return (
-    <div className={cs.customInput}>
-      <input {...props} />
-    </div>
-  )
+  return <input className={cs.customInput} {...props} />
 }
 
 export default CustomInput

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useEffect, useRef, useContext } from "react"
 import { motion } from "framer-motion"
 import { navigate } from "gatsby"
 
@@ -35,17 +35,16 @@ const Checkout = () => {
   } = useContext(CartContext)
 
   const [formData, setFormData] = useState(initialFormData)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const onSubmitHandler = e => {
-    e.preventDefault()
+  const formRef = useRef(null)
 
-    const form = e.target
-
+  useEffect(() => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": form.getAttribute("name"),
+        "form-name": formRef.current.target.getAttribute("name"),
         ...formData,
       }),
     })
@@ -53,8 +52,19 @@ const Checkout = () => {
         dispatch(clearCart())
         setFormData(initialFormData)
         dispatch(setCartStage("complete"))
+        setIsSubmitting(false)
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        setIsSubmitting(false)
+        console.log("here is " + error)
+      })
+  }, [isSubmitting])
+
+  const onSubmitHandler = e => {
+    e.preventDefault()
+    console.log(formRef.current.target)
+    setIsSubmitting(true)
+    // const form = e.target
   }
 
   const onChangeHandler = ({ target: { name, value } }) => {
@@ -74,6 +84,7 @@ const Checkout = () => {
         Выбрано {cartItemsCount} товар(а) на сумму {cartItemsTotalPrice} гривен
       </p>
       <form
+        ref={formRef}
         name="checkout-form"
         method="post"
         data-netlify="true"

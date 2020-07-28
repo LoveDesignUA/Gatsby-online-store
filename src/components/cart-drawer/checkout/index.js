@@ -7,11 +7,7 @@ import cs from "./style.module.scss"
 
 // Context and Actions
 import { CartContext } from "../../../context/cart/cartContext"
-import {
-  setCartStage,
-  clearCart,
-  toggleCartOpen,
-} from "../../../context/cart/cartActions"
+import { setCartStage, clearCart } from "../../../context/cart/cartActions"
 
 // Components
 import CustomInput from "../../custom-input"
@@ -43,12 +39,6 @@ const Checkout = () => {
   const onSubmitHandler = e => {
     e.preventDefault()
 
-    // dispatch(clearCart())
-    // setFormData(initialFormData)
-    // dispatch(toggleCartOpen())
-    // dispatch(setCartStage("cart"))
-    // dispatch(setCartStage("complete"))
-
     const form = e.target
 
     fetch("/", {
@@ -65,7 +55,6 @@ const Checkout = () => {
         dispatch(setCartStage("complete"))
       })
       .catch(error => console.log(error))
-    // .then(() => navigate(form.getAttribute("action")))
   }
 
   const onChangeHandler = ({ target: { name, value } }) => {
@@ -82,7 +71,7 @@ const Checkout = () => {
       className={cs.checkOut}
     >
       <p>
-        Выбрано {cartItemsCount} товар(а) на сумму {cartItemsTotalPrice} гривен{" "}
+        Выбрано {cartItemsCount} товар(а) на сумму {cartItemsTotalPrice} гривен
       </p>
       <form
         name="checkout-form"
@@ -91,13 +80,8 @@ const Checkout = () => {
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}
       >
+        <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="checkout-form" />
-        {/* <p hidden>
-            <label>
-              Don’t fill this out:
-              <input name="bot-field" onChange={onChangeHandler} />
-            </label>
-          </p> */}
         <CustomInput
           type="text"
           minLength="8"

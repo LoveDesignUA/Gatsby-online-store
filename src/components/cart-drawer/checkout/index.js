@@ -42,43 +42,28 @@ const Checkout = () => {
   useEffect(() => {
     if (!isSubmitting) return
 
-    let didCancel = false
-
-    const fetchData = async () => {
-      try {
-        const result = await fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({
-            "form-name": formRef.current.getAttribute("name"),
-            ...formData,
-          }),
-        })
-
-        if (!didCancel) {
-          dispatch(clearCart())
-          setFormData(initialFormData)
-          dispatch(setCartStage("complete"))
-          setIsSubmitting(false)
-        }
-      } catch (error) {
-        if (!didCancel) {
-          setIsSubmitting(false)
-          console.log("here is " + error)
-        }
-      }
-    }
-
-    fetchData()
-
-    return () => {
-      didCancel = true
-    }
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": formRef.current.getAttribute("name"),
+        ...formData,
+      }),
+    })
+      .then(() => {
+        dispatch(clearCart())
+        setFormData(initialFormData)
+        dispatch(setCartStage("complete"))
+        setIsSubmitting(false)
+      })
+      .catch(error => {
+        setIsSubmitting(false)
+        console.log("here is " + error)
+      })
   }, [isSubmitting])
 
   const onSubmitHandler = e => {
     e.preventDefault()
-    console.log(formRef.current.getAttribute("name"))
     setIsSubmitting(true)
     // const form = e.target
   }
@@ -103,6 +88,7 @@ const Checkout = () => {
         ref={formRef}
         name="checkout-form"
         method="post"
+        action="/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}

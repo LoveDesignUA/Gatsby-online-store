@@ -91,11 +91,11 @@ const Checkout = () => {
       </p>
       <form
         // ref={formRef}
-        name="checkout-form"
+        // name="checkout-form"
         method="post"
         action="https://formspree.io/mwkradpa"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        // data-netlify="true"
+        // data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}
       >
         {/* <input type="hidden" name="form-name" value="checkout-form" />

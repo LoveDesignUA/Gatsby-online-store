@@ -11,7 +11,6 @@ import { setCartStage, clearCart } from "../../../context/cart/cartActions"
 
 // Components
 import CustomInput from "../../custom-input"
-import CustomButton from "../../button"
 import RippleButton from "../../button/ripple-button"
 
 const initialFormData = {
@@ -93,8 +92,8 @@ const Checkout = () => {
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}
       >
-        <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="checkout-form" />
+        <input type="hidden" name="bot-field" />
         <CustomInput
           type="text"
           minLength="8"

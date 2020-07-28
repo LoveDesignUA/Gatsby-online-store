@@ -92,8 +92,8 @@ const Checkout = () => {
       <form
         // ref={formRef}
         // name="checkout-form"
-        method="post"
         action="https://formspree.io/mwkradpa"
+        method="POST"
         // data-netlify="true"
         // data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}

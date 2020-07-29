@@ -93,7 +93,7 @@ const Checkout = () => {
       <form
         ref={formRef}
         name="cart-checkout-form"
-        action="/"
+        //action="/"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"

@@ -41,7 +41,7 @@ const Checkout = () => {
   useEffect(() => {
     if (!isSubmitting) return
 
-    fetch("/", {
+    fetch("https://minimal-store.netlify.app/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({

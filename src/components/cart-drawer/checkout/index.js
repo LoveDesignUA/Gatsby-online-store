@@ -41,7 +41,7 @@ const Checkout = () => {
   useEffect(() => {
     if (!isSubmitting) return
 
-    fetch("https://minimal-store.netlify.app/", {
+    fetch("https://minimal-store.netlify.app", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
@@ -49,7 +49,7 @@ const Checkout = () => {
         ...formData,
       }),
     })
-      .then(() => {
+      .then((response) => {
         dispatch(clearCart())
         setFormData(initialFormData)
         dispatch(setCartStage("complete"))

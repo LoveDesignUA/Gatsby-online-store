@@ -99,8 +99,8 @@ const Checkout = () => {
         data-netlify-honeypot="bot-field"
         onSubmit={onSubmitHandler}
       >
-        <input type="hidden" name="form-name" value="cart-checkout-form" />
-        <input type="hidden" name="bot-field" />
+        /*<input type="hidden" name="form-name" value="cart-checkout-form" />
+        <input type="hidden" name="bot-field" />*/
         <CustomInput
           type="text"
           minLength="8"

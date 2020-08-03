@@ -9,7 +9,7 @@ import MenuIcon from "../../images/svg/header/menu.svg"
 import ShoppingBag from "../shopping-bag"
 
 const headerLinks = [
-  { title: "Главная", linkTo: "/" },
+  { title: "Главная", linkTo: "/  " },
   { title: "Мужчинам", linkTo: "/shop/men" },
   { title: "Женщинам", linkTo: "/shop/women" },
   { title: "Акции и скидки", linkTo: "/shop/sales" },

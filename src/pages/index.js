@@ -90,11 +90,11 @@ const IndexPage = () => {
 
       <section style={previewStyles}>
         <h2 style={h2Styles}>
-          <Link to={"/shop/sale"}>Распродажа</Link>
+          <Link to={"/shop/sales"}>Распродажа</Link>
         </h2>
         <CollectionPreview
           products={renderDiscountProducts()}
-          path="/shop/sale"
+          path="/shop/sales"
         />
       </section>
 

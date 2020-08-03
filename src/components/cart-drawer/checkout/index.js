@@ -6,7 +6,11 @@ import cs from "./style.module.scss"
 
 // Context and Actions
 import { CartContext } from "../../../context/cart/cartContext"
-import { setCartStage, clearCart } from "../../../context/cart/cartActions"
+import {
+  setCartStage,
+  clearCart,
+  toggleCartOpen,
+} from "../../../context/cart/cartActions"
 
 // Components
 import CustomInput from "../../custom-input"
@@ -33,32 +37,7 @@ const Checkout = () => {
   } = useContext(CartContext)
 
   const [formData, setFormData] = useState(initialFormData)
-  // const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // const formRef = useRef(null)
-
-  // useEffect(() => {
-  //   if (!isSubmitting) return
-
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: encode({
-  //       "form-name": formRef.current.getAttribute("name"),
-  //       ...formData,
-  //     }),
-  //   })
-  //     .then(() => {
-  //       dispatch(clearCart())
-  //       setFormData(initialFormData)
-  //       dispatch(setCartStage("complete"))
-  //       setIsSubmitting(false)
-  //     })
-  //     .catch(error => {
-  //       setIsSubmitting(false)
-  //       console.log("here is " + error)
-  //     })
-  // }, [isSubmitting])
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const formRef = useRef(null)
@@ -87,12 +66,13 @@ const Checkout = () => {
   }, [isSubmitting])
 
   const onSubmitHandler = e => {
-    e.preventDefault()
+    // e.preventDefault()
     // setIsSubmitting(true)
 
     dispatch(clearCart())
     setFormData(initialFormData)
-    dispatch(setCartStage("complete"))
+    dispatch(toggleCartOpen())
+    // dispatch(setCartStage("complete"))
     // setIsSubmitting(false)
 
     // const form = e.target
@@ -125,7 +105,7 @@ const Checkout = () => {
         method="POST"
         // data-netlify="true"
         // data-netlify-honeypot="bot-field"
-        // onSubmit={onSubmitHandler}
+        onSubmit={onSubmitHandler}
       >
         {/* <input type="hidden" name="form-name" value="checkout-form" />
         <input type="hidden" name="bot-field" /> */}

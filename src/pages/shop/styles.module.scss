@@ -1,0 +1,76 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/typography.scss";
+@import "../../design-system/mixins.scss";
+
+.collectionPage {
+  padding-bottom: 3em;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  @include for-desktop-up {
+    padding-top: 0;
+  }
+}
+
+.title {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.filterIcon {
+  display: flex;
+  align-items: center;
+
+  span {
+    display: none;
+
+    @media screen and(min-width: 410px) {
+      display: inline;
+    }
+  }
+
+  button {
+    margin-left: 1em;
+    border-radius: 50%;
+    line-height: 0;
+    border: 2px solid $color-primary;
+
+    &.filterOpened {
+      background-color: white;
+    }
+
+    &.filterClosed {
+      background-color: $color-primary;
+    }
+  }
+}
+
+.collectionItems {
+  margin-left: -1em;
+  margin-right: -1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 0.5em;
+  grid-row-gap: 3em;
+
+  @include for-tablet-portrait-up {
+    margin-left: initial;
+    margin-right: initial;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-column-gap: 1em;
+  }
+
+  @include for-tablet-landscape-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include for-large-desktop-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

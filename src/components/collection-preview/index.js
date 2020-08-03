@@ -21,18 +21,23 @@ const containerVariants = {
 const CollectionPreview = ({ products, path }) => {
   return (
     <div>
-      <motion.div
+      {/* <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
         className={cs.collectionPreview}
-      >
+      > */}
+      <div className={cs.collectionPreview}>
         {products
           .filter((item, i) => i < 4)
-          .map(product => {
-            return <CollectionItem key={product.id} {...product} path={path} />
+          .map(({ id, ...rest }) => {
+            {
+              /* return <CollectionItem key={product.id} {...product} path={path} /> */
+            }
+            return <CollectionItem key={id} {...rest} />
           })}
-      </motion.div>
+        {/* </motion.div> */}
+      </div>
       <div className={cs.showMore}>
         <div>
           <svg
@@ -49,7 +54,7 @@ const CollectionPreview = ({ products, path }) => {
               height="44"
               rx="4"
               ry="4"
-              stroke-linecap="round"
+              strokeLinecap="round"
             />
           </svg>
           <Link to={path} className={cs.button}>

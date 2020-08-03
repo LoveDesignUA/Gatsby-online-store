@@ -33,26 +33,30 @@ const CollectionFilter = ({
     >
       <Tabs>
         <div label="Размер">
-          {uniqueProductSizes.map(size => (
-            <Checkbox
-              key={`size ${size}`}
-              label={size}
-              filter="sizes"
-              filterOptions={filterOptions}
-              setFilterOptions={setFilterOptions}
-            />
-          ))}
+          <div className={cs.filterContent}>
+            {uniqueProductSizes.map(size => (
+              <Checkbox
+                key={`size ${size}`}
+                label={size}
+                filter="sizes"
+                filterOptions={filterOptions}
+                setFilterOptions={setFilterOptions}
+              />
+            ))}
+          </div>
         </div>
         <div label="Бренд">
-          {productsBrands.map(brand => (
-            <Checkbox
-              key={`brand ${brand}`}
-              label={brand}
-              filter="brands"
-              filterOptions={filterOptions}
-              setFilterOptions={setFilterOptions}
-            />
-          ))}
+          <div className={cs.filterContent}>
+            {productsBrands.map(brand => (
+              <Checkbox
+                key={`brand ${brand}`}
+                label={brand}
+                filter="brands"
+                filterOptions={filterOptions}
+                setFilterOptions={setFilterOptions}
+              />
+            ))}
+          </div>
         </div>
         {/* <div label="Цена">
           Nothing to see here, this tab is <em>extinct</em>!

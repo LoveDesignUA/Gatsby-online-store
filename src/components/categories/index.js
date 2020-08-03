@@ -11,7 +11,7 @@ const Categories = () => {
     allContentfulCategories: { categories },
   } = useStaticQuery(graphql`
     {
-      allContentfulCategories {
+      allContentfulCategories(sort: { fields: id, order: DESC }) {
         categories: nodes {
           slug
           id
@@ -31,6 +31,10 @@ const Categories = () => {
       {categories.map(
         ({ id, categoryName, slug, categoryImage: { fluid } }) => (
           <div key={id}>
+            <div className={cs.title}>
+              <h3>{categoryName}</h3>
+              <Link to={`/shop/${slug}`}>Посмотреть</Link>
+            </div>
             <Link to={`/shop/${slug}`}>
               <Image fluid={fluid} alt={categoryName} />
             </Link>

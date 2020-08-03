@@ -31,12 +31,17 @@ const Collections = ({ data, location }) => {
 
           if (product === null) return null
 
+          {
+            /* const productsForPreview = product.filter((product, i) => i < 4) */
+          }
+
           return (
             <section key={id}>
               <h2>
                 <Link to={path}>{collectionName}</Link>
               </h2>
               <CollectionPreview path={path} products={product} />
+              {/* <CollectionPreview products={product} /> */}
             </section>
           )
         })}
@@ -55,15 +60,24 @@ export const query = graphql`
           categoryName
         }
         product {
-          productName
-          productPrice
+          id
+          categoryReference {
+            slug
+          }
+          productReference {
+            slug
+          }
           slug
+          productPrice
+          productName
+          isBestSellingProduct
+          createdAt
+          productDiscount
           productImages {
             fluid {
               ...GatsbyContentfulFluid
             }
           }
-          id
         }
         collectionName
         id

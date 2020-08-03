@@ -6,27 +6,32 @@
 }
 
 .tabList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+  display: flex;
 
-  @include for-tablet-portrait-up {
-    grid-template-columns: repeat(2, 10em);
-  }
+  // @include for-tablet-portrait-up {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  // }
 }
 
 .tabListItem {
+  flex-grow: 1;
+
   padding: 0.9em;
   border-bottom: 2px solid $color-primary;
   background-color: #F5F5F5;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 1;
   font-weight: 700;
 
   @include for-tablet-portrait-up {
+    flex-grow: 0;
     font-size: 0.9rem;
     background-color: #F5F5F5;
-    padding: 0.9em 2em;
+    padding: 0.9em 4em;
   }
 }
 
@@ -42,7 +47,7 @@
   padding: 2em;
   padding-bottom: 0;
 
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
 
 }

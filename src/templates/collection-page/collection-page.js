@@ -84,7 +84,7 @@ const CollectionPage = ({ data, location }) => {
       return (
         <CollectionItem
           key={product.id}
-          path={location.pathname}
+          // path={location.pathname}
           {...product}
         />
       )
@@ -206,6 +206,12 @@ export const query = graphql`
       }
       collectionName
       product {
+        categoryReference {
+          slug
+        }
+        productReference {
+          slug
+        }
         brandReference {
           brandName
         }

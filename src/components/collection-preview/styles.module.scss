@@ -14,18 +14,25 @@
   @include for-tablet-portrait-up {
     margin-left: initial;
     margin-right: initial;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-column-gap: 1em;
   }
 
   @include for-tablet-landscape-up {
-    // grid-template-columns: repeat(auto-fit, minmax(240px, 400px));
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+
+    &>div:nth-child(4) {
+      display: none;
+    }
   }
 
-  // @include for-desktop-up {
-  //   grid-template-columns: repeat(4, 1fr);
-  // }
+  @include for-desktop-up {
+    grid-template-columns: repeat(4, 1fr);
+
+    &>div:nth-child(4) {
+      display: initial;
+    }
+  }
 }
 
 .showMore {
@@ -34,8 +41,6 @@
   &>div {
     display: inline-block;
     position: relative;
-    // border: 3px solid transparent;
-    // border-radius: 0.25em;
 
     &:hover {
       svg {
@@ -76,8 +81,6 @@
     transition: background-color 0.4s;
     display: inline-block;
     font-size: 1rem;
-    // padding: 0.75em 1.75em;
-    // line-height: 1.15;
     width: 200px;
     height: 48px;
     line-height: 42px;
@@ -86,8 +89,6 @@
     font-weight: 600;
     border: 3px solid #eee;
     border-radius: 4px;
-    // border-width: 0.2em;
-    // border-style: solid;
     color: $color-primary;
 
   }
@@ -102,54 +103,3 @@
     stroke-dashoffset: -480;
   }
 }
-
-
-/*.gradientBorderButton {
-    --border-width: 2px;
-
-    position: relative;
-    line-height: 1.15;
-    padding: 0.75em 1.75em;
-    display: inline-block;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    color: $color-primary;
-    background: white;
-    // border-radius: 2px;
-    border-radius: var(--border-width);
-
-    &::after {
-      position: absolute;
-      content: "";
-      top: calc(-1 * var(--border-width));
-      left: calc(-1 * var(--border-width));
-      z-index: -1;
-      width: calc(100% + var(--border-width) * 2);
-      height: calc(100% + var(--border-width) * 2);
-      filter: blur(3px);
-      background: linear-gradient(60deg,
-          
-  hsl(224, 85%, 66%),
-  hsl(269, 85%, 66%),
-  hsl(314, 85%, 66%),
-  hsl(359, 85%, 66%),
-  hsl(44, 85%, 66%),
-  hsl(89, 85%, 66%),
-  hsl(134, 85%, 66%),
-  hsl(179, 85%, 66%));
-  background-size: 300% 300%;
-  background-position: 0 50%;
-  border-radius: calc(2 * var(--border-width));
-  animation: moveGradient 4s alternate infinite;
-}
-}
-
-@keyframes moveGradient {
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-*/

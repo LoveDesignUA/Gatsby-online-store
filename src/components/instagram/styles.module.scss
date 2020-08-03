@@ -1,0 +1,98 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.instagram {
+  margin-top: 3em;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.instaContainer {
+
+  // margin: 0 -1em;
+
+  // @include for-tablet-portrait-up {
+  //   margin: 0 -2em;
+  // }
+
+  // @include for-desktop-up {
+  //   margin: 0 -3em;
+  // }
+
+  .instaLink {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    // background-color: $color-primary;
+    background-color: $color-secondary;
+
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+.instaThumbnails {
+  display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));  
+  grid-template-columns: repeat(2, 1fr);
+
+  &>img:nth-child(2n),
+  &>img:nth-child(3n) {
+    display: none;
+  }
+
+  @include for-tablet-portrait-up {
+    grid-template-columns: repeat(3, 1fr);
+
+    &>img:nth-child(2n) {
+      display: initial;
+    }
+
+    &>img:nth-child(3n),
+    &>img:nth-child(4n) {
+      display: none;
+    }
+  }
+
+  @include for-tablet-landscape-up {
+    grid-template-columns: repeat(4, 1fr);
+
+    &>img:nth-child(2n),
+    &>img:nth-child(4n) {
+      display: initial;
+    }
+
+    &>img:nth-child(3n) {
+      display: none;
+    }
+  }
+
+  @include for-desktop-up {
+    grid-template-columns: repeat(5, 1fr);
+
+    &>img:nth-child(3n),
+    &>img:nth-child(4n) {
+      display: initial;
+    }
+
+    &>img:nth-child(6n) {
+      display: none;
+    }
+  }
+
+  @include for-large-desktop-up {
+    grid-template-columns: repeat(5, 1fr);
+
+    &>img:nth-child(2n),
+    &>img:nth-child(3n),
+    &>img:nth-child(4n),
+    &>img:nth-child(6n) {
+      display: initial;
+    }
+  }
+}

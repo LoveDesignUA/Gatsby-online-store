@@ -5,7 +5,6 @@ import Image from "gatsby-image"
 
 // Context and Actions
 import { CartContext } from "../../context/cart/cartContext"
-import { addItemToCart } from "../../context/cart/cartActions"
 
 // Assets
 import cs from "./styles.module.scss"
@@ -33,15 +32,18 @@ const CollectionItem = product => {
   }, [isCartOpen])
 
   const {
-    brandReference,
-    id,
-    productImages,
-    slug,
-    productName,
+    categoryReference: { slug: categorySlug },
+    productReference: { slug: collectionSlug },
+    slug: productSlug,
     productPrice,
-    productSizes,
-    path,
+    productName,
+    isBestSellingProduct,
+    createdAt,
+    productDiscount,
+    productImages,
   } = product
+
+  const path = `/shop/${categorySlug}/${collectionSlug}/${productSlug}`
 
   const onHoverHandler = e => {
     e.preventDefault()
@@ -61,7 +63,8 @@ const CollectionItem = product => {
 
       <div className={cs.productInfo}>
         <div>
-          <Link className={cs.productLink} to={`${path}/${slug}`}>
+          {/* <Link className={cs.productLink} to={`${path}/${slug}`}> */}
+          <Link className={cs.productLink} to={path}>
             {productName}
           </Link>
           <div className={cs.productPrice}>{productPrice} грн</div>

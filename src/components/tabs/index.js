@@ -7,7 +7,7 @@ import cs from "./styles.module.scss"
 const cx = classNames.bind(cs)
 
 // Main component
-const Tabs = ({ children }) => {
+const Tabs = ({ children, bgColor }) => {
   const [activeTab, setActiveTab] = useState(children[0].props.label)
 
   return (

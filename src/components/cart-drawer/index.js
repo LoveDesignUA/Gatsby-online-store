@@ -12,7 +12,7 @@ import ArrowIcon from "../../images/svg/cart/arrow-back.svg"
 
 // Components
 import CartItems from "./cart-items"
-import CheckOut from "./checkout"
+import CheckOut from "./checkout/index"
 import Complete from "./complete"
 
 // Main Component
@@ -36,6 +36,7 @@ const CartDrawer = () => {
       // style={{ display: isCartOpen ? "block" : "none" }}
     >
       <motion.div
+        initial={{ opacity: 0 }}
         animate={{
           opacity: isCartOpen ? 1 : 0,
         }}

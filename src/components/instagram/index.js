@@ -37,7 +37,9 @@ const Instagram = () => {
       <div className={cs.instaContainer}>
         <div className={cs.instaThumbnails}>
           {instaImages.map(instaImage => {
-            console.log(instaImage)
+            {
+              /* console.log(instaImage) */
+            }
 
             {
               /* return <Image fluid={instaImage.localFile.childImageSharp.fluid} /> */
@@ -46,7 +48,12 @@ const Instagram = () => {
               /* return <Image fixed={instaImage.localFile.childImageSharp.fixed} /> */
             }
 
-            return <img src={instaImage.thumbnails[3].src} />
+            return (
+              <img
+                key={instaImage.localFile.id}
+                src={instaImage.thumbnails[3].src}
+              />
+            )
           })}
         </div>
 

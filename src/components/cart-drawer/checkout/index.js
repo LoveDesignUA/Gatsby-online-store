@@ -89,6 +89,9 @@ const Checkout = () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return
       if (xhr.status === 200) {
         form.reset()
+        dispatch(clearCart())
+        setFormData(initialFormData)
+        dispatch(toggleCartOpen())
         // this.setState({ status: "SUCCESS" })
       } else {
         // this.setState({ status: "ERROR" })

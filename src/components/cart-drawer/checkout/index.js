@@ -42,27 +42,53 @@ const Checkout = () => {
 
   const formRef = useRef(null)
 
+  // useEffect(() => {
+  //   if (!isSubmitting) return
+
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({
+  //       "form-name": formRef.current.getAttribute("name"),
+  //       ...formData,
+  //     }),
+  //   })
+  //     .then(response => {
+  //       dispatch(clearCart())
+  //       setFormData(initialFormData)
+  //       dispatch(setCartStage("complete"))
+  //       setIsSubmitting(false)
+  //     })
+  //     .catch(error => {
+  //       setIsSubmitting(false)
+  //       console.log("here is " + error)
+  //     })
+  // }, [isSubmitting])
+
   useEffect(() => {
     if (!isSubmitting) return
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": formRef.current.getAttribute("name"),
-        ...formData,
-      }),
-    })
-      .then(response => {
+    const form = formRef.current
+    const data = new FormData(form)
+    const xhr = new XMLHttpRequest()
+    xhr.open(form.method, form.action)
+    xhr.setRequestHeader("Accept", "application/json")
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return
+      if (xhr.status === 200) {
+        form.reset()
         dispatch(clearCart())
         setFormData(initialFormData)
         dispatch(setCartStage("complete"))
         setIsSubmitting(false)
-      })
-      .catch(error => {
+        // this.setState({ status: "SUCCESS" })
+      } else {
+        // this.setState({ status: "ERROR" })
+        console.log("Form submitting error")
         setIsSubmitting(false)
-        console.log("here is " + error)
-      })
+      }
+    }
+    xhr.send(data)
   }, [isSubmitting])
 
   // const onSubmitHandler = e => {
@@ -78,27 +104,9 @@ const Checkout = () => {
   //   // const form = e.target
   // }
 
-  const onSubmitHandler = ev => {
-    ev.preventDefault()
-    const form = ev.target
-    const data = new FormData(form)
-    const xhr = new XMLHttpRequest()
-    xhr.open(form.method, form.action)
-    xhr.setRequestHeader("Accept", "application/json")
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return
-      if (xhr.status === 200) {
-        form.reset()
-        dispatch(clearCart())
-        setFormData(initialFormData)
-        dispatch(toggleCartOpen())
-        // this.setState({ status: "SUCCESS" })
-      } else {
-        // this.setState({ status: "ERROR" })
-        console.log("Form submitting error")
-      }
-    }
-    xhr.send(data)
+  const onSubmitHandler = e => {
+    e.preventDefault()
+    setIsSubmitting(true)
   }
 
   const onChangeHandler = ({ target: { name, value } }) => {

@@ -11,7 +11,7 @@ const Instagram = () => {
     allInstaNode: { nodes: instaImages },
   } = useStaticQuery(graphql`
     {
-      allInstaNode(limit: 12, filter: { likes: { gt: 700000 } }) {
+      allInstaNode(limit: 12, filter: { likes: { gt: 500000 } }) {
         nodes {
           thumbnails {
             src

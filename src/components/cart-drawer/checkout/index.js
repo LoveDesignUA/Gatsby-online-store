@@ -59,6 +59,32 @@ const Checkout = () => {
   //       console.log("here is " + error)
   //     })
   // }, [isSubmitting])
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const formRef = useRef(null)
+
+  useEffect(() => {
+    if (!isSubmitting) return
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": formRef.current.getAttribute("name"),
+        ...formData,
+      }),
+    })
+      .then(response => {
+        dispatch(clearCart())
+        setFormData(initialFormData)
+        dispatch(setCartStage("complete"))
+        setIsSubmitting(false)
+      })
+      .catch(error => {
+        setIsSubmitting(false)
+        console.log("here is " + error)
+      })
+  }, [isSubmitting])
 
   const onSubmitHandler = e => {
     e.preventDefault()
@@ -93,6 +119,9 @@ const Checkout = () => {
         // ref={formRef}
         // name="checkout-form"
         action="https://formspree.io/mwkradpa"
+        ref={formRef}
+        name="cart-checkout-form"
+        //action="/"
         method="POST"
         // data-netlify="true"
         // data-netlify-honeypot="bot-field"

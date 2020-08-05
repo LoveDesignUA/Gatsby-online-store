@@ -9,6 +9,7 @@ import reducer from "./reducer"
 const initialState = {
   isCartOpen: false,
   cartStage: "cart",
+  formSubmitResponse: "",
   cartItems: [],
   cartItemsCount: 0,
   cartItemsTotalPrice: 0,

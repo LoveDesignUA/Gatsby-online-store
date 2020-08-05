@@ -8,8 +8,8 @@ import cs from "./style.module.scss"
 import { CartContext } from "../../../context/cart/cartContext"
 import {
   setCartStage,
+  setFormSubmitStatus,
   clearCart,
-  toggleCartOpen,
 } from "../../../context/cart/cartActions"
 
 // Components
@@ -17,10 +17,10 @@ import CustomInput from "../../custom-input"
 import RippleButton from "../../button/ripple-button"
 
 const initialFormData = {
-  fullName: "",
-  phoneNumber: "",
-  city: "",
-  postOffice: "",
+  ФИО: "",
+  Телефон: "",
+  Город: "",
+  "Отделение Новой почты": "",
 }
 
 function encode(data) {
@@ -32,7 +32,7 @@ function encode(data) {
 // Main component
 const Checkout = () => {
   const {
-    cartState: { cartItemsCount, cartItemsTotalPrice },
+    cartState: { cartItems, cartItemsCount, cartItemsTotalPrice },
     dispatch,
   } = useContext(CartContext)
 
@@ -42,34 +42,24 @@ const Checkout = () => {
 
   const formRef = useRef(null)
 
-  // useEffect(() => {
-  //   if (!isSubmitting) return
-
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: encode({
-  //       "form-name": formRef.current.getAttribute("name"),
-  //       ...formData,
-  //     }),
-  //   })
-  //     .then(response => {
-  //       dispatch(clearCart())
-  //       setFormData(initialFormData)
-  //       dispatch(setCartStage("complete"))
-  //       setIsSubmitting(false)
-  //     })
-  //     .catch(error => {
-  //       setIsSubmitting(false)
-  //       console.log("here is " + error)
-  //     })
-  // }, [isSubmitting])
-
   useEffect(() => {
     if (!isSubmitting) return
 
+    // const cartItemsForEmail = cartItems.reduce((finalOrder, item) => {
+    const cartItemsForEmail = cartItems.reduce((finalOrder, item) => {
+      const productToemail = {
+        Товар: item.productName,
+        Цена: item.productPrice,
+        Количество: item.quantity,
+        Размер: item.productSize,
+      }
+
+      return [...finalOrder, productToemail]
+    }, [])
+
     const form = formRef.current
     const data = new FormData(form)
+    data.append("Заказ", JSON.stringify(cartItemsForEmail))
     const xhr = new XMLHttpRequest()
     xhr.open(form.method, form.action)
     xhr.setRequestHeader("Accept", "application/json")
@@ -77,32 +67,19 @@ const Checkout = () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return
       if (xhr.status === 200) {
         form.reset()
+        dispatch(setFormSubmitStatus("SUCCESS"))
+        dispatch(setCartStage("complete"))
         dispatch(clearCart())
         setFormData(initialFormData)
-        dispatch(setCartStage("complete"))
         setIsSubmitting(false)
-        // this.setState({ status: "SUCCESS" })
       } else {
-        // this.setState({ status: "ERROR" })
-        console.log("Form submitting error")
+        dispatch(setFormSubmitStatus("FAIL"))
+        dispatch(setCartStage("complete"))
         setIsSubmitting(false)
       }
     }
     xhr.send(data)
   }, [isSubmitting])
-
-  // const onSubmitHandler = e => {
-  //   // e.preventDefault()
-  //   // setIsSubmitting(true)
-
-  //   dispatch(clearCart())
-  //   setFormData(initialFormData)
-  //   dispatch(toggleCartOpen())
-  //   // dispatch(setCartStage("complete"))
-  //   // setIsSubmitting(false)
-
-  //   // const form = e.target
-  // }
 
   const onSubmitHandler = e => {
     e.preventDefault()
@@ -144,7 +121,8 @@ const Checkout = () => {
           type="text"
           minLength="8"
           required
-          name="fullName"
+          // name="fullName"
+          name="ФИО"
           placeholder="Фамилия, имя, отчество"
           value={formData.fullName}
           onChange={onChangeHandler}
@@ -152,7 +130,8 @@ const Checkout = () => {
         <fieldset>
           <CustomInput
             type="tel"
-            name="phoneNumber"
+            // name="phoneNumber"
+            name="Телефон"
             pattern="[0-9]{3}[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}"
             // pattern="+38(0[1-9]{2})-[0-9]{3}-[0-9]{2}-[0-9]{2})"
             required
@@ -166,7 +145,8 @@ const Checkout = () => {
           type="text"
           required
           minLength="3"
-          name="city"
+          // name="city"
+          name="Город"
           placeholder="Город"
           value={formData.city}
           onChange={onChangeHandler}
@@ -176,7 +156,8 @@ const Checkout = () => {
           min="1"
           max="777"
           required
-          name="postOffice"
+          // name="postOffice"
+          name="Отделение Новой почты"
           placeholder="Отделение Новой почты"
           value={formData.postOffice}
           onChange={onChangeHandler}

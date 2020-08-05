@@ -12,6 +12,10 @@
 
   p {
     text-align: center;
+
+    &.fail {
+      margin-top: 25vh;
+    }
   }
 
   button {

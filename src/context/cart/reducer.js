@@ -14,6 +14,7 @@ import {
   GET_CART_ITEMS_COUNT,
   GET_CART_ITEMS_TOTAL_PRICE,
   SET_CART_STAGE,
+  SET_FORM_SUBMIT_RESPONSE,
   CLEAR_CART,
 } from "./cartActionTypes"
 
@@ -34,6 +35,12 @@ export default (state, { type, payload }) => {
       return {
         ...state,
         cartStage: payload,
+      }
+
+    case SET_FORM_SUBMIT_RESPONSE:
+      return {
+        ...state,
+        formSubmitResponse: payload,
       }
 
     case ADD_ITEM_TO_CART:

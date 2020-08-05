@@ -181,9 +181,11 @@ const Checkout = () => {
           value={formData.postOffice}
           onChange={onChangeHandler}
         />
-        <RippleButton type="submit" secondary fullWidth>
-          Подтвердить заказ
-        </RippleButton>
+        <div className={cs.bottomPanel}>
+          <RippleButton type="submit" secondary fullWidth>
+            Подтвердить заказ
+          </RippleButton>
+        </div>
       </form>
     </motion.div>
   )

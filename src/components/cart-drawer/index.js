@@ -74,6 +74,7 @@ const CartDrawer = () => {
               {cartStage === "cart" && (
                 <CartItems handleCloseCart={handleCloseCart} />
               )}
+              {/* {cartStage === "cart" && <Complete />} */}
               {cartStage === "checkout" && <CheckOut />}
               {cartStage === "complete" && <Complete />}
             </section>

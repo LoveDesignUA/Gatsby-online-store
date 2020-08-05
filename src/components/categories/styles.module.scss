@@ -17,30 +17,56 @@
 
     .title {
       position: absolute;
-      top: 2em;
-
+      bottom: 0;
+      left: 3em;
+      right: 3em;
+      text-align: center;
       z-index: 2;
 
-      a {
-        display: inline-block;
+      @include for-tablet-portrait-up {
+        bottom: initial;
+        left: initial;
+        right: initial;
+        text-align: initial;
+        top: 2em;
+      }
 
-        // background-color: $color-primary;
-        color: white;
-        color: $color-primary;
+      h3 {
+        padding: 1em;
         border: 1px solid $color-primary;
-        padding: 0.75em 1.5em;
-        line-height: 1;
-        text-transform: uppercase;
-        // font-weight: 700;
-        // letter-spacing: 0.05em;
-        border-radius: 0.25em;
-        transition: all ease-out 0.2s;
+        background-color: rgba(255, 255, 255, 0.5);
 
-        &:hover {
-          // background-color: transparent;
-          // color: $color-primary;
+        @include for-tablet-portrait-up {
+          padding: initial;
+          border: initial;
+          background-color: initial;
+        }
+      }
+
+      a {
+        display: none;
+
+        @include for-tablet-portrait-up {
+          display: inline-block;
+
+          // background-color: $color-primary;
           color: white;
-          background-color: $color-primary;
+          color: $color-primary;
+          border: 1px solid $color-primary;
+          padding: 0.75em 1.5em;
+          line-height: 1;
+          text-transform: uppercase;
+          // font-weight: 700;
+          // letter-spacing: 0.05em;
+          border-radius: 0.25em;
+          transition: all ease-out 0.2s;
+
+          &:hover {
+            // background-color: transparent;
+            // color: $color-primary;
+            color: white;
+            background-color: $color-primary;
+          }
         }
       }
     }
@@ -54,15 +80,19 @@
       }
 
       .title {
-        left: 2em;
+        @include for-tablet-portrait-up {
+          left: 2em;
+        }
       }
     }
 
     &:nth-child(2) {
 
       .title {
-        text-align: right;
-        right: 2em;
+        @include for-tablet-portrait-up {
+          text-align: right;
+          right: 2em;
+        }
       }
     }
   }

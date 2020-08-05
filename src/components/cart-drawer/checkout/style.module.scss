@@ -8,7 +8,11 @@
   }
 
   form {
-    margin-top: 2em;
+    margin-top: 1em;
+
+    @include for-tablet-portrait-up {
+      margin-top: 2em;
+    }
 
     fieldset {
       border: none;
@@ -19,13 +23,33 @@
 
     p {
       display: block;
-      // font-weight: bold;
       font-weight: 700;
       margin-top: -1em;
     }
 
     button {
-      margin-top: 3em
+      @include for-phone-landscape-only {
+        margin-top: 1em
+      }
     }
+  }
+}
+
+
+.bottomPanel {
+  position: absolute;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em 2em;
+  background-color: #fff;
+  z-index: 3;
+
+  @include for-phone-landscape-only {
+    position: initial;
+    box-shadow: initial;
+    padding: initial;
+    background-color: initial;
   }
 }

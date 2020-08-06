@@ -1,12 +1,19 @@
 .shoppingBag {
   position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    position: absolute;
+  }
 
   span {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 3;
-    color: #fff;
+    color: white;
     font-size: 12px;
+    font-weight: 700;
+    margin-top: 6px;
   }
 }

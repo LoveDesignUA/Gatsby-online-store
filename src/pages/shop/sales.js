@@ -33,6 +33,7 @@ const Sale = () => {
     {
       allContentfulProduct(filter: { productDiscount: { gt: 0 } }) {
         nodes {
+          id
           slug
           productPrice
           productName

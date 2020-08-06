@@ -1,0 +1,91 @@
+@import "../../design-system/vars.scss";
+@import "../../design-system/mixins.scss";
+
+.mobileMenu {
+  position: relative;
+  padding: 3em;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 30;
+  background-color: $color-primary;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include for-phone-landscape-only {
+    padding: 2em;
+  }
+}
+
+.closeMenu {
+  opacity: 0.75;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.logo {
+  visibility: hidden;
+  // opacity: 0;
+  color: white;
+}
+
+.menuLinks {
+  // margin-top: 20vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include for-phone-landscape-only {
+    flex-direction: row;
+  }
+
+  &>div+div {
+    margin-top: 1em;
+
+    @include for-phone-landscape-only {
+      margin-top: initial;
+      margin-left: 2em;
+    }
+  }
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 44px;
+    text-transform: uppercase;
+    // font-weight: 700;
+    letter-spacing: 0.05em;
+
+    @include interpolate(font-size, 320px, 800px, 16px, 22px);
+
+    @include for-phone-landscape-only {
+      font-size: 1em;
+    }
+
+    span {
+      line-height: 1.2;
+      border-bottom: 2px solid $color-secondary;
+    }
+  }
+}
+
+.socialLinks {
+  // margin-top: auto;
+
+  display: flex;
+  justify-content: center;
+
+  a+a {
+    margin-left: 1em;
+  }
+}

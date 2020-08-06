@@ -17,7 +17,6 @@
       position: sticky;
       padding: 2em 2em 0 0;
     }
-
   }
 
   @include for-tablet-landscape-up {
@@ -25,14 +24,11 @@
     overflow-y: scroll;
 
     display: grid;
-    // grid-template-columns: repeat(2, 1fr);
     grid-template-columns: 3fr 2fr;
     grid-column-gap: 2em;
 
     &>div {
-      // height: calc(100vh - 64px - 32px);
       height: calc(100vh - 64px);
-      // overflow-y: scroll;
 
       &>div:not(:last-child) {
         padding-top: 40px;
@@ -90,6 +86,7 @@
   &.active {
     background-color: $color-primary;
     color: white;
+    font-weight: 700;
     border-color: $color-primary;
   }
 }

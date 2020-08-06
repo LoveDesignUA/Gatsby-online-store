@@ -58,29 +58,29 @@ const Footer = () => {
       <div className={cs.social}>
         <ul>
           <li>
-            <a target="_blank" href="#">
+            <a target="_blank" href="/">
               <InstagramIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="#">
+            <a target="_blank" href="/">
               <TelegramIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="#">
+            <a target="_blank" href="/">
               <FacebookIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="#">
+            <a target="_blank" href="/">
               <YoutubeIcon />
             </a>
           </li>
         </ul>
       </div>
 
-      <p>2019 Minimal. Все права защищены</p>
+      <p>2020 Minimal. Все права защищены</p>
     </footer>
   )
 }

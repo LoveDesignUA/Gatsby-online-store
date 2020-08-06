@@ -164,13 +164,6 @@ const ProductPage = ({ data }) => {
               ))}
           </div>
 
-          {/* <CustomButton
-            type="submit"
-            onClickHandler={onAddToCartHandler}
-            color="black"
-          >
-            Добавить в корзину
-          </CustomButton> */}
           <RippleButton
             type="submit"
             onClickHandler={onAddToCartHandler}

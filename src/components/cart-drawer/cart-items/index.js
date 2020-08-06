@@ -9,12 +9,12 @@ import MinusIcon from "../../../images/svg/cart/minus.svg"
 import RemoveIcon from "../../../images/svg/cart/remove.svg"
 
 // Components
-import CustomButton from "../../button"
 import RippleButton from "../../button/ripple-button"
 
 // Context and Actions
 import { CartContext } from "../../../context/cart/cartContext"
 import {
+  toggleCartOpen,
   setCartStage,
   addItemToCart,
   decreaseItemQuantityFromCart,
@@ -40,7 +40,7 @@ const itemVariants = {
 }
 
 // Main component
-const CartItems = ({ handleCloseCart }) => {
+const CartItems = () => {
   const {
     cartState: { cartItems, cartItemsCount, cartItemsTotalPrice },
     dispatch,
@@ -131,12 +131,6 @@ const CartItems = ({ handleCloseCart }) => {
             <div className={cs.totalPrice}>
               Сумма к оплате: {cartItemsTotalPrice} грн
             </div>
-            {/* <CustomButton
-              color="green"
-              onClickHandler={handleCartStage}
-            >
-              Оформить заказ
-            </CustomButton> */}
             <RippleButton
               type="submit"
               secondary
@@ -147,16 +141,10 @@ const CartItems = ({ handleCloseCart }) => {
           </div>
         ) : (
           <div className={cs.cartItemsBottom}>
-            {/* <CustomButton
-              color="black"
-              onClickHandler={handleCloseCart}
-            >
-              Продолжить покупки
-            </CustomButton> */}
             <RippleButton
               type="submit"
               primary
-              onClickHandler={handleCloseCart}
+              onClickHandler={() => dispatch(toggleCartOpen())}
             >
               Продолжить покупки
             </RippleButton>

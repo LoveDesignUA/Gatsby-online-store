@@ -12,9 +12,14 @@
 
   p {
     text-align: center;
+  }
 
-    &.fail {
-      margin-top: 25vh;
+  .fail {
+    margin-top: 25vh;
+    text-align: center;
+
+    svg {
+      margin-bottom: 1em;
     }
   }
 

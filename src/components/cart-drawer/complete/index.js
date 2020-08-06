@@ -3,6 +3,7 @@ import { navigate } from "gatsby"
 
 // Assets
 import cs from "./styles.module.scss"
+import ErrorIcon from "../../../images/svg/cart/error.svg"
 
 // Context and Actions
 import { CartContext } from "../../../context/cart/cartContext"
@@ -51,11 +52,14 @@ const Completed = () => {
           <p>Ваш заказ принят и обрабатывается...</p>
         </>
       ) : (
-        <p className={cs.fail}>
-          Ошибка отправки формы заказа
-          <br />
-          Попробуйте повоторить позже
-        </p>
+        <div className={cs.fail}>
+          <ErrorIcon />
+          <p>
+            Ошибка отправки формы заказа
+            <br />
+            Попробуйте повоторить позже
+          </p>
+        </div>
       )}
       <RippleButton primary fullWidth onClickHandler={buttonHandler}>
         Вернуться на главную

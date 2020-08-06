@@ -4,95 +4,98 @@
 .categories {
   margin-bottom: 3em;
 
-  // @include for-tablet-portrait-up {
   @include for-tablet-landscape-up {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // grid-column-gap: 16px;
     grid-column-gap: 1em;
   }
+}
 
-  &>div {
-    position: relative;
+.category {
+  cursor: pointer;
+  position: relative;
 
-    .title {
-      position: absolute;
-      bottom: 0;
-      left: 3em;
-      right: 3em;
-      text-align: center;
-      z-index: 2;
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  img {
+    transition: all ease-out 0.4s !important;
+  }
+
+  .title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+
+    @include for-tablet-portrait-up {
+      bottom: initial;
+      left: initial;
+      text-align: initial;
+      transform: initial;
+      top: 2em;
+    }
+
+    h3 {
+      white-space: nowrap;
+      padding: 1em 2em;
+      border: 1px solid $color-primary;
+      background-color: rgba(255, 255, 255, 0.8);
 
       @include for-tablet-portrait-up {
-        bottom: initial;
-        left: initial;
-        right: initial;
-        text-align: initial;
-        top: 2em;
+        padding: initial;
+        border: initial;
+        background-color: initial;
       }
+    }
 
-      h3 {
-        padding: 1em;
+    a {
+      display: none;
+
+      @include for-tablet-portrait-up {
+        display: inline-block;
+
+        color: white;
+        color: $color-primary;
         border: 1px solid $color-primary;
-        background-color: rgba(255, 255, 255, 0.75);
+        padding: 0.75em 1.5em;
+        line-height: 1;
+        text-transform: uppercase;
+        border-radius: 0.25em;
+        transition: all ease-out 0.2s;
 
-        @include for-tablet-portrait-up {
-          padding: initial;
-          border: initial;
-          background-color: initial;
-        }
-      }
-
-      a {
-        display: none;
-
-        @include for-tablet-portrait-up {
-          display: inline-block;
-
-          // background-color: $color-primary;
+        &:hover {
           color: white;
-          color: $color-primary;
-          border: 1px solid $color-primary;
-          padding: 0.75em 1.5em;
-          line-height: 1;
-          text-transform: uppercase;
-          // font-weight: 700;
-          // letter-spacing: 0.05em;
-          border-radius: 0.25em;
-          transition: all ease-out 0.2s;
-
-          &:hover {
-            // background-color: transparent;
-            // color: $color-primary;
-            color: white;
-            background-color: $color-primary;
-          }
+          background-color: $color-primary;
         }
       }
     }
+  }
 
-    &:nth-child(1) {
-      margin-bottom: 1em;
+  &:nth-child(1) {
+    margin-bottom: 1em;
 
-      // @include for-tablet-portrait-up {
-      @include for-tablet-landscape-up {
-        margin-bottom: 0;
-      }
-
-      .title {
-        @include for-tablet-portrait-up {
-          left: 2em;
-        }
-      }
+    // @include for-tablet-portrait-up {
+    @include for-tablet-landscape-up {
+      margin-bottom: 0;
     }
 
-    &:nth-child(2) {
+    .title {
+      @include for-tablet-portrait-up {
+        left: 2em;
+      }
+    }
+  }
 
-      .title {
-        @include for-tablet-portrait-up {
-          text-align: right;
-          right: 2em;
-        }
+  &:nth-child(2) {
+
+    .title {
+      @include for-tablet-portrait-up {
+        text-align: right;
+        right: 2em;
       }
     }
   }

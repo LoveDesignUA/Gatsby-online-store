@@ -33,6 +33,7 @@ const News = () => {
     {
       allContentfulProduct {
         nodes {
+          id
           slug
           productPrice
           productName
@@ -79,7 +80,7 @@ const News = () => {
           {products
             .filter(product => {
               // console.log(parseInt(product.createdAt.match(/\d+/g)))
-              return parseInt(product.createdAt.match(/\d+/g)) < 21
+              return parseInt(product.createdAt.match(/\d+/g)) < 26
             })
             .map(({ id, ...rest }) => (
               <CollectionItem key={id} {...rest} />

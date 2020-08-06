@@ -33,6 +33,7 @@ const BestSellers = () => {
     {
       allContentfulProduct(filter: { isBestSellingProduct: { eq: true } }) {
         nodes {
+          id
           slug
           productPrice
           productName

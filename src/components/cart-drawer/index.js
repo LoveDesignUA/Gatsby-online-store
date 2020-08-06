@@ -18,13 +18,12 @@ import Complete from "./complete"
 // Main Component
 const CartDrawer = () => {
   const {
-    cartState: { isCartOpen, cartItemsCount, cartItemsTotalPrice, cartStage },
+    cartState: { isCartOpen, cartStage },
     dispatch,
   } = useContext(CartContext)
 
   const handleCloseCart = () => {
     dispatch(toggleCartOpen())
-    // dispatch(setCartStage("cart"))
   }
 
   return (
@@ -71,9 +70,7 @@ const CartDrawer = () => {
           </div>
           <div className={cs.cartContent}>
             <section className={cs.cartStage}>
-              {cartStage === "cart" && (
-                <CartItems handleCloseCart={handleCloseCart} />
-              )}
+              {cartStage === "cart" && <CartItems />}
               {/* {cartStage === "cart" && <Complete />} */}
               {cartStage === "checkout" && <CheckOut />}
               {cartStage === "complete" && <Complete />}

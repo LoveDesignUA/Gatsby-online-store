@@ -45,16 +45,15 @@ const Checkout = () => {
   useEffect(() => {
     if (!isSubmitting) return
 
-    // const cartItemsForEmail = cartItems.reduce((finalOrder, item) => {
     const cartItemsForEmail = cartItems.reduce((finalOrder, item) => {
-      const productToemail = {
+      const productForEmail = {
         Товар: item.productName,
         Цена: item.productPrice,
         Количество: item.quantity,
         Размер: item.productSize,
       }
 
-      return [...finalOrder, productToemail]
+      return [...finalOrder, productForEmail]
     }, [])
 
     const form = formRef.current
@@ -104,7 +103,6 @@ const Checkout = () => {
         гривен
       </p>
       <form
-        // ref={formRef}
         // name="checkout-form"
         action="https://formspree.io/mwkradpa"
         ref={formRef}

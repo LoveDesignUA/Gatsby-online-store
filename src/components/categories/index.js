@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import Image from "gatsby-image"
 
 // Assets
@@ -30,14 +30,16 @@ const Categories = () => {
     <div className={cs.categories}>
       {categories.map(
         ({ id, categoryName, slug, categoryImage: { fluid } }) => (
-          <div key={id}>
+          <div
+            className={cs.category}
+            key={id}
+            onClick={() => navigate(`/shop/${slug}`)}
+          >
             <div className={cs.title}>
               <h3>{categoryName}</h3>
               <Link to={`/shop/${slug}`}>Посмотреть</Link>
             </div>
-            <Link to={`/shop/${slug}`}>
-              <Image fluid={fluid} alt={categoryName} />
-            </Link>
+            <Image fluid={fluid} alt={categoryName} />
           </div>
         )
       )}

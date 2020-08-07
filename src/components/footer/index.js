@@ -31,11 +31,12 @@ const Footer = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": form.getAttribute("name"),
-        ...email,
+        "Subscriber's email": email,
       }),
     })
       .then(() => {
         // navigate(form.getAttribute("action"))
+        setEmail("")
         setIsSubmitting(false)
       })
       .catch(error => {

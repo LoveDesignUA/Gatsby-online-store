@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Link } from "gatsby"
 
 // Assets
@@ -11,12 +11,46 @@ import ArrowRightIcon from "../../images/svg/footer/right-arrow.svg"
 import TelegramIcon from "../../images/svg/footer/telegram.svg"
 import YoutubeIcon from "../../images/svg/footer/youtube.svg"
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 // Main component
 const Footer = () => {
   const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const formRef = useRef(null)
+
+  useEffect(() => {
+    const form = formRef.current
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...email,
+      }),
+    })
+      .then(() => {
+        // navigate(form.getAttribute("action"))
+        setIsSubmitting(false)
+      })
+      .catch(error => {
+        setIsSubmitting(false)
+        alert(error)
+      })
+
+    return () => {
+      setIsSubmitting(false)
+    }
+  }, [isSubmitting])
 
   const handleSubmit = e => {
     e.preventDefault()
+    setIsSubmitting(true)
   }
 
   const handleChange = ({ target: { value } }) => {
@@ -44,7 +78,15 @@ const Footer = () => {
         </ul>
       </nav>
       <p>Подписка на акции и скидки</p>
-      <form onSubmit={handleSubmit}>
+      <form
+        ref={formRef}
+        name="subscribe"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="subscribe" />
         <input
           onChange={handleChange}
           value={email}

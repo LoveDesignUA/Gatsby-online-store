@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 // Assets
 import cs from "./styles.module.scss"
@@ -9,12 +9,6 @@ import cs from "./styles.module.scss"
 import Layout from "../../components/layout"
 import Breadcrumbs from "../../components/breadcrumbs"
 import CollectionItem from "../../components/collection-item"
-
-const defaultFilterOptions = {
-  sizes: [],
-  brands: [],
-  // price: 0
-}
 
 const containerVariants = {
   show: {

@@ -69,14 +69,9 @@
   form {
     margin-bottom: 48px;
 
-    // display: grid;
-    // grid-template-rows: 40px 40px;
-    // grid-row-gap: 16px;
-
     @include for-tablet-portrait-up {
       margin: 0 auto;
       display: flex;
-      // width: 400px;
       @include interpolate(width, 600px, $breakpoint-max, 440px, 560px);
     }
 
@@ -146,14 +141,10 @@
     display: flex;
     justify-content: center;
 
-    // @supports(display: grid) {
-    //   display: grid;
-    //   grid-template-columns: repeat(4, 48px);
-    //   justify-content: center;
-    //   grid-column-gap: 16px;
-    // }
-
     li {
+      a {
+        line-height: 0;
+      }
 
       &+li {
         margin-left: 1.5em;

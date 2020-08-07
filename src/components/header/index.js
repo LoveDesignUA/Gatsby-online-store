@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import { useLocation } from "@reach/router"
 
 // Assets
 import cs from "./styles.module.scss"
@@ -17,9 +18,10 @@ const headerLinks = [
 ]
 
 // Main component
-const Header = props => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  console.log(props)
+  const { pathname } = useLocation()
+
   return (
     <header className={cs.header}>
       <button className={cs.mobileMenu} onClick={() => setIsMenuOpen(true)}>
@@ -32,9 +34,9 @@ const Header = props => {
         setIsMenuOpen={setIsMenuOpen}
       />
 
-      <Link className={cs.logo} to="/">
-        LOGO
-      </Link>
+      <div className={cs.logo}>
+        {pathname === "/" ? <span>LOGO</span> : <Link to="/">LOGO</Link>}
+      </div>
 
       <div className={cs.headerLinks}>
         {headerLinks.map(({ linkTo, title }) => (

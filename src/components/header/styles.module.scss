@@ -26,7 +26,11 @@
 }
 
 .logo {
-  color: white;
+
+  a,
+  span {
+    color: white;
+  }
 
   @include for-tablet-landscape-up {
     margin-left: 1em;

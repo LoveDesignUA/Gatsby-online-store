@@ -80,7 +80,7 @@ const News = () => {
           {products
             .filter(product => {
               // console.log(parseInt(product.createdAt.match(/\d+/g)))
-              return parseInt(product.createdAt.match(/\d+/g)) < 26
+              return parseInt(product.createdAt.match(/\d+/g)) < 30
             })
             .map(({ id, ...rest }) => (
               <CollectionItem key={id} {...rest} />

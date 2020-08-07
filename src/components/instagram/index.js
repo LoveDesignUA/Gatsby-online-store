@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 // Assets
@@ -28,7 +28,6 @@ const Instagram = () => {
       }
     }
   `)
-  // return <pre>{JSON.stringify(data, null, 4)}</pre>
 
   return (
     <section className={cs.instagram}>
@@ -52,6 +51,8 @@ const Instagram = () => {
               <img
                 key={instaImage.localFile.id}
                 src={instaImage.thumbnails[3].src}
+                width="480"
+                height="480"
               />
             )
           })}

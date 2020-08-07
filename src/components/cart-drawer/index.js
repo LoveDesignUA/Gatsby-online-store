@@ -32,7 +32,6 @@ const CartDrawer = () => {
       initial={false}
       animate={false}
       exit={{ display: "none", transition: { delay: 0.5 } }}
-      // style={{ display: isCartOpen ? "block" : "none" }}
     >
       <motion.div
         initial={{ opacity: 0 }}

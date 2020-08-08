@@ -25,6 +25,8 @@ const Footer = () => {
   const formRef = useRef(null)
 
   useEffect(() => {
+    if (!isSubmitting || !email) return
+
     const form = formRef.current
     fetch("/", {
       method: "POST",
@@ -94,6 +96,7 @@ const Footer = () => {
           type="email"
           name="email"
           placeholder="Ваш email"
+          required
         />
         <button type="submit">Подписаться</button>
       </form>

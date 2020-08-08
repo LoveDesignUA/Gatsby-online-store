@@ -21,6 +21,7 @@ const ShoppingBag = () => {
 
   return (
     <button className={cs.shoppingBag} onClick={handleToggleCart}>
+      Корзина
       <span>{cartItemsCount}</span>
       <ShoppingCartIcon />
     </button>

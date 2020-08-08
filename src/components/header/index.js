@@ -25,6 +25,7 @@ const Header = () => {
   return (
     <header className={cs.header}>
       <button className={cs.mobileMenu} onClick={() => setIsMenuOpen(true)}>
+        Menu
         <MenuIcon />
       </button>
 

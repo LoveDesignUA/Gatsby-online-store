@@ -25,8 +25,8 @@
 .closeMenu {
   opacity: 0.75;
   position: absolute;
-  top: 1em;
-  right: 1em;
+  top: 1rem;
+  right: 1rem;
 }
 
 .logo {
@@ -85,7 +85,15 @@
   display: flex;
   justify-content: center;
 
-  a+a {
-    margin-left: 1em;
+  a {
+    font-size: 0;
+
+    &+a {
+      margin-left: 1rem;
+    }
   }
+
+  // a+a {
+  //   margin-left: 1em;
+  // }
 }

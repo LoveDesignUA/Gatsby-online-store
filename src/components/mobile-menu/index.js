@@ -45,6 +45,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, headerLinks }) => {
           className={cs.mobileMenu}
         >
           <button className={cs.closeMenu} onClick={() => setIsMenuOpen(false)}>
+            Закрыть
             <CloseIcon />
           </button>
 
@@ -68,16 +69,20 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, headerLinks }) => {
           </motion.div>
 
           <div className={cs.socialLinks}>
-            <a target="_blank" href="/">
+            <a target="_blank" rel="noreferrer" href="https://instagram.com">
+              Instagram
               <InstagramIcon />
             </a>
-            <a target="_blank" href="/">
+            <a target="_blank" rel="noreferrer" href="https://web.telegram.org">
+              Telegram
               <TelegramIcon />
             </a>
-            <a target="_blank" href="/">
+            <a target="_blank" rel="noreferrer" href="https://facebook.com">
+              Facebook
               <FacebookIcon />
             </a>
-            <a target="_blank" href="/">
+            <a target="_blank" rel="noreferrer" href="https://youtube.com">
+              Youtube
               <YoutubeIcon />
             </a>
           </div>

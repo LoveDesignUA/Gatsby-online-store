@@ -10,6 +10,12 @@ module.exports = {
     author: `LoveDesignUA`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-html-attributes",
+      options: {
+        lang: "en",
+      },
+    },
     `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
     {

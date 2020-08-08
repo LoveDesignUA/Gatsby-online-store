@@ -90,7 +90,9 @@ const Footer = () => {
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="subscribe" />
+        <label htmlFor="subscribeEmail">Email</label>
         <input
+          id="subscribeEmail"
           onChange={handleChange}
           value={email}
           type="email"
@@ -104,22 +106,26 @@ const Footer = () => {
       <div className={cs.social}>
         <ul>
           <li>
-            <a target="_blank" href="/">
+            <a target="_blank" href="https://instagram.com">
+              Instagram
               <InstagramIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="/">
+            <a target="_blank" href="https://web.telegram.org">
+              Telegram
               <TelegramIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="/">
+            <a target="_blank" href="https://facebook.com">
+              Facebook
               <FacebookIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="/">
+            <a target="_blank" href="https://youtube.com">
+              Youtube
               <YoutubeIcon />
             </a>
           </li>

@@ -79,6 +79,10 @@
       @include interpolate(width, 600px, $breakpoint-max, 440px, 560px);
     }
 
+    label {
+      font-size: 0;
+    }
+
     input {
       //mobile styles
       display: block;
@@ -148,6 +152,7 @@
     li {
       a {
         line-height: 0;
+        font-size: 0;
       }
 
       &+li {

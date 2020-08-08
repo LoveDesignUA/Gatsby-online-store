@@ -1,5 +1,4 @@
 import React from "react"
-import { motion } from "framer-motion"
 import { Link } from "gatsby"
 
 // Assets
@@ -21,12 +20,6 @@ const containerVariants = {
 const CollectionPreview = ({ products, path }) => {
   return (
     <div>
-      {/* <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-        className={cs.collectionPreview}
-      > */}
       <div className={cs.collectionPreview}>
         {products
           .filter((item, i) => i < 4)
@@ -36,7 +29,6 @@ const CollectionPreview = ({ products, path }) => {
             }
             return <CollectionItem key={id} {...rest} />
           })}
-        {/* </motion.div> */}
       </div>
       <div className={cs.showMore}>
         <div>

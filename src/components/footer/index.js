@@ -106,25 +106,25 @@ const Footer = () => {
       <div className={cs.social}>
         <ul>
           <li>
-            <a target="_blank" href="https://instagram.com">
+            <a target="_blank" rel="noreferrer" href="https://instagram.com">
               Instagram
               <InstagramIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://web.telegram.org">
+            <a target="_blank" rel="noreferrer" href="https://web.telegram.org">
               Telegram
               <TelegramIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://facebook.com">
+            <a target="_blank" rel="noreferrer" href="https://facebook.com">
               Facebook
               <FacebookIcon />
             </a>
           </li>
           <li>
-            <a target="_blank" href="https://youtube.com">
+            <a target="_blank" rel="noreferrer" href="https://youtube.com">
               Youtube
               <YoutubeIcon />
             </a>

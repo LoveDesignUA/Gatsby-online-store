@@ -58,7 +58,7 @@ const CollectionItem = product => {
         onMouseEnter={onHoverHandler}
         onMouseLeave={onHoverHandler}
       >
-        <Image fluid={productImages[currentImage].fluid} />
+        <Image fluid={productImages[currentImage].fluid} alt={productName} />
       </div>
 
       <div className={cs.productInfo}>

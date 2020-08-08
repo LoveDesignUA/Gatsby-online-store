@@ -53,6 +53,7 @@ const Instagram = () => {
                 src={instaImage.thumbnails[3].src}
                 width="480"
                 height="480"
+                alt={"Image from Instagram"}
               />
             )
           })}

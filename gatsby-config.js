@@ -5,11 +5,12 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: `https://minimal-store.netlify.app`,
-    title: `E-commerce store`,
+    title: `Украинский интернет-магазин кроссовок, одежды и аксессуаров`,
     description: `E-commerce Gatsby store`,
     author: `LoveDesignUA`,
   },
   plugins: [
+    `gatsby-plugin-preact`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-instagram`,

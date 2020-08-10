@@ -19,17 +19,17 @@ const itemVariants = {
 }
 
 const CollectionItem = product => {
-  const {
-    cartState: { isCartOpen },
-    dispatch,
-  } = useContext(CartContext)
+  // const {
+  //   cartState: { isCartOpen },
+  //   dispatch,
+  // } = useContext(CartContext)
 
   // Переключение изображения при наведении
-  const [currentImage, setCurrentImage] = useState(0)
+  // const [currentImage, setCurrentImage] = useState(0)
 
-  useEffect(() => {
-    setCurrentImage(0)
-  }, [isCartOpen])
+  // useEffect(() => {
+  //   setCurrentImage(0)
+  // }, [isCartOpen])
 
   const {
     categoryReference: { slug: categorySlug },
@@ -45,20 +45,20 @@ const CollectionItem = product => {
 
   const path = `/shop/${categorySlug}/${collectionSlug}/${productSlug}`
 
-  const onHoverHandler = e => {
-    e.preventDefault()
-    // e.stopPropagation()
-    setCurrentImage(prevState => (prevState === 0 ? 1 : 0))
-  }
+  // const onHoverHandler = e => {
+  //   e.preventDefault()
+  //   setCurrentImage(prevState => (prevState === 0 ? 1 : 0))
+  // }
 
   return (
     <motion.div variants={itemVariants} className={cs.collectionItem}>
       <div
         className={cs.imageWrapper}
-        onMouseEnter={onHoverHandler}
-        onMouseLeave={onHoverHandler}
+        // onMouseEnter={onHoverHandler}
+        // onMouseLeave={onHoverHandler}
       >
-        <Image fluid={productImages[currentImage].fluid} alt={productName} />
+        {/* <Image fluid={productImages[currentImage].fluid} alt={productName} /> */}
+        <Image fluid={productImages[0].fluid} alt={productName} />
       </div>
 
       <div className={cs.productInfo}>

@@ -41,11 +41,6 @@ module.exports = {
             subsets: [`cyrillic`],
             variants: [`400`, `700`],
           },
-          {
-            family: `PT Sans Caption`,
-            subsets: [`cyrillic`],
-            variants: [`400`, `700`],
-          },
         ],
       },
     },

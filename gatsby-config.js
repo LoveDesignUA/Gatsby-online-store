@@ -20,6 +20,9 @@ module.exports = {
         theme_color: `#121212`,
         display: `standalone`,
         icon: `src/images/svg/favicon/icon.svg`,
+        icon_options: {
+          purpose: `maskable`,
+        },
       },
     },
     // To learn more, visit: https://gatsby.dev/offline

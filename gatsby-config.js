@@ -13,11 +13,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Интернет магазин Minimal`,
-        short_name: `Minimal`,
-        start_url: `https://minimal-store.netlify.app`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        name: `Интернет магазин Minimal Украина`,
+        short_name: `Minimal store UA`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#121212`,
         display: `standalone`,
         icon: `src/images/svg/favicon/icon.svg`,
       },

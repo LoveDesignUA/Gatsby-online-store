@@ -18,7 +18,7 @@ const Categories = () => {
           categoryName
           categoryImage {
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }

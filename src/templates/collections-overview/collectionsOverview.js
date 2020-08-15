@@ -75,7 +75,7 @@ export const query = graphql`
           productDiscount
           productImages {
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }

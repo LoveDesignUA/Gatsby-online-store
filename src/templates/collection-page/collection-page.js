@@ -222,7 +222,7 @@ export const query = graphql`
         id
         productImages {
           fluid {
-            ...GatsbyContentfulFluid
+            ...GatsbyContentfulFluid_withWebp
           }
         }
       }

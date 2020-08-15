@@ -208,7 +208,7 @@ export const query = graphql`
       }
       productImages {
         fluid(maxWidth: 400) {
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_withWebp
         }
         id
       }

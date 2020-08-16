@@ -8,6 +8,7 @@ import cs from "./styles.module.scss"
 import Layout from "../../components/layout"
 import CollectionPreview from "../../components/collection-preview"
 import Breadcrumbs from "../../components/breadcrumbs"
+import SEO from "../../components/seo"
 
 // Main component
 const Collections = ({ data, location }) => {
@@ -15,15 +16,18 @@ const Collections = ({ data, location }) => {
     allContentfulCollections: { collections },
   } = data
 
+  const title = collections[0].collectionReference.categoryName
+
   const breadcrumbs = [
     {
-      title: collections[0].collectionReference.categoryName,
+      title,
       link: null,
     },
   ]
 
   return (
     <Layout>
+      <SEO title={title} description={`${title} | Minimal`} />
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className={cs.collectionsOverview}>
         {collections.map(({ id, slug, collectionName, product }) => {

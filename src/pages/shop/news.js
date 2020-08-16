@@ -9,6 +9,7 @@ import cs from "./styles.module.scss"
 import Layout from "../../components/layout"
 import Breadcrumbs from "../../components/breadcrumbs"
 import CollectionItem from "../../components/collection-item"
+import SEO from "../../components/seo"
 
 const defaultFilterOptions = {
   sizes: [],
@@ -65,6 +66,7 @@ const News = () => {
 
   return (
     <Layout>
+      <SEO title="Новинки" description="Страница с новинками" />
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className={cs.collectionPage}>
         <div className={cs.title}>

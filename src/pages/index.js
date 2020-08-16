@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Categories from "../components/categories"
 import CollectionPreview from "../components/collection-preview"
 import Instagram from "../components/instagram"
+import SEO from "../components/seo"
 
 const previewStyles = {
   paddingBottom: "3em",
@@ -69,6 +70,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <SEO title="Главная" description="Это наша главная страница" />
       <Categories />
 
       <section style={previewStyles}>

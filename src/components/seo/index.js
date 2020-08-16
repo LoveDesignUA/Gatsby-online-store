@@ -6,16 +6,16 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const SEO = ({ title, description, image, article }) => {
   const { location } = useLocation()
-  const { site } = useStaticQuery(query)
 
-  const data = useStaticQuery(graphql`
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
     {
       site {
         siteMetadata {
-          author
-          description
+          defaultDescription: description
           siteUrl
-          title
+          defaultTitle: title
           titleTemplate
         }
       }
@@ -28,15 +28,24 @@ const SEO = ({ title, description, image, article }) => {
     defaultDescription,
     siteUrl,
     // defaultImage,
-    twitterUsername,
-  } = site.siteMetadata
+    // twitterUsername,
+  } = siteMetadata
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     // image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`,
+    // url: `${siteUrl}${pathname}`,
   }
-  return <pre>{JSON.stringify(data, null, 4)}</pre>
+
+  return (
+    <Helmet
+      htmlAttributes={{ lang: "ru" }}
+      title={`${title} | ${defaultTitle}`}
+    >
+      <meta name="description" content={seo.description} />
+      {/* <meta name="image" content={seo.image} /> */}
+    </Helmet>
+  )
 }
 export default SEO

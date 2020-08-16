@@ -5,8 +5,8 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: `https://minimal-store.netlify.app`,
-    title: `Украинский интернет-магазин кроссовок, одежды и аксессуаров`,
-    description: `E-commerce Gatsby store`,
+    title: `Minimal store`,
+    description: `Украинский интернет-магазин кроссовок, одежды и аксессуаров`,
     author: `LoveDesignUA`,
     titleTemplate: "%s · The Real Hero",
   },
@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-html-attributes",
       options: {
-        lang: "en",
+        lang: "ru",
       },
     },
     `gatsby-plugin-preact`,

@@ -8,6 +8,7 @@ module.exports = {
     title: `Украинский интернет-магазин кроссовок, одежды и аксессуаров`,
     description: `E-commerce Gatsby store`,
     author: `LoveDesignUA`,
+    titleTemplate: "%s · The Real Hero",
   },
   plugins: [
     {
